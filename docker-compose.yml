@@ -1,0 +1,9 @@
+version: '3'
+services:
+    database:
+        container_name: database
+        build: ./database
+        ports:
+            - '27017:27017' # expose:container
+        volumes:
+            - ./database/mongodb:/data/db
