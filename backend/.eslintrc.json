@@ -1,0 +1,15 @@
+{
+  "extends": "eslint:recommended",
+  "parserOptions": {
+    "ecmaVersion": 6,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true
+    }
+  },
+  "rules": {
+    "semi": [ "error", "always" ],
+    "indent": [ "error", 4, { "SwitchCase": 1 } ],
+    "no-console": 0
+  }
+}

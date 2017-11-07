@@ -59,3 +59,6 @@ typings/
 
 # Database volumes
 database/mongodb
+
+# Backend dist
+backend/dist
