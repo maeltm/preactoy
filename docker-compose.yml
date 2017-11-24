@@ -7,3 +7,16 @@ services:
             - '27017:27017' # expose:container
         volumes:
             - ./database/mongodb:/data/db
+
+    backend:
+        container_name: backend
+        build: ./backend
+        ports:
+            - '4000:4000'
+        volumes:
+            - './backend:/usr/src/app'
+            - '/usr/src/app/node_modules'
+        depends_on:
+            - database
+        links:
+            - database
