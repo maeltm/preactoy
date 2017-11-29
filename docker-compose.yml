@@ -10,6 +10,7 @@ services:
 
     backend:
         container_name: backend
+        tty: true
         build: ./backend
         ports:
             - '4000:4000'
@@ -21,7 +22,9 @@ services:
         links:
             - database
         environment:
+            - PORT=4000
             - DATABASE_URL=mongodb://database:27017/preactoy
+            - TEST_DATABASE_URL=mongodb://database:27017/preactoy-test
     frontend:
         container_name: frontend
         build: ./frontend
@@ -34,3 +37,5 @@ services:
             - backend
         links:
             - backend
+        environment:
+            - PORT=3000
