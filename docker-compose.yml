@@ -20,6 +20,8 @@ services:
             - database
         links:
             - database
+        environment:
+            - DATABASE_URL=mongodb://database:27017/preactoy
     frontend:
         container_name: frontend
         build: ./frontend

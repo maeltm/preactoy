@@ -11,5 +11,15 @@
     "semi": [ "error", "always" ],
     "indent": [ "error", 4, { "SwitchCase": 1 } ],
     "no-console": 0
+  },
+  "globals": {
+    "it": false,
+    "describe": false,
+    "before": false,
+    "beforeEach": false,
+    "after": false,
+    "afterEach": false,
+    "process": false,
+    "require": false
   }
 }

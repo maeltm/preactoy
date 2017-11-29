@@ -6,7 +6,7 @@ const eslint = require('gulp-eslint');
 
 gulp.task('start', ['build'], () => {
     return nodemon({
-        script: './dist/app.js',
+        script: './dist/server.js',
         ignore: ['dist/', 'node_modules/'],
         ext: 'js html',
         tasks: ['lint', 'build'],
