@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "gulp --gulpfile gulpfile.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "gulp lint && gulp build && NODE_ENV=test mocha --compilers js:babel-core/register test/**/*.test.js"
   },
   "author": "",
   "license": "ISC",
@@ -31,6 +31,7 @@
     "gulp-eslint": "^4.0.0",
     "gulp-nodemon": "^2.2.1",
     "gulp-sourcemaps": "^2.6.1",
-    "mocha": "^4.0.1"
+    "mocha": "^4.0.1",
+    "supertest": "^3.0.0"
   }
 }
