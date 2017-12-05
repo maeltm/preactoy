@@ -5,7 +5,7 @@
   "main": "server.js",
   "scripts": {
     "start": "gulp --gulpfile gulpfile.js",
-    "test": "gulp lint && gulp build && NODE_ENV=test mocha --compilers js:babel-core/register test/**/*.test.js"
+    "test": "gulp lint && gulp build && NODE_ENV=test mocha --exit --compilers js:babel-core/register test/**/*.test.js"
   },
   "author": "",
   "license": "ISC",
