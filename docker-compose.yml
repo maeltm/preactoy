@@ -25,6 +25,8 @@ services:
             - PORT=4000
             - DATABASE_URL=mongodb://database:27017/preactoy
             - TEST_DATABASE_URL=mongodb://database:27017/preactoy-test
+            - TOKEN_SECRET=SECRET!@#!
+            # - DEBUG=server:*
     frontend:
         container_name: frontend
         build: ./frontend
