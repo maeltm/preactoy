@@ -2,7 +2,7 @@ import assert from 'assert';
 import supertest from 'supertest';
 import app from '../../dist/app';
 
-describe('description', function() {
+describe('route::index', function() {
     describe('GET /does/not/exist', function() {
         it('should throw an error', function (done) {
             supertest.agent(app)

@@ -1,38 +1,31 @@
+import 'babel-polyfill';
+import 'source-map-support/register';
+import './database';
+
 import bodyParser from 'body-parser';
-import cookieParser from 'cookie-parser';
 import express from 'express';
 import morgan from 'morgan';
-import session from 'express-session';
 
 import api from './routes';
 import { ErrorHandle } from './common/responseUtil';
-require('./database');
+
+const debug = require('debug')('server:app');
 
 const app = express();
-
-app.use((req, res, next) => {
-    res.header('Access-Control-Allow-Origin', '*');
-    res.header('Access-Control-Allow-Methods', 'GET, PUT, POST, DELETE');
-    res.header('Access-Control-Allow-Headers', 'Content-Type');
-    next();
-});
 
 if (process.env.NODE_ENV !== 'test') {
     app.use(morgan('dev'));
 }
 
 app.use(bodyParser.json());
-app.use(cookieParser());
 
-app.use(session({
-    secret: 'secret@#',
-    resave: false,
-    saveUninitialized: true,
-    cookie: {
-        httpOnly: false,
-        maxAge: 60 * 60 * 1000
-    }
-}));
+app.use((req, res, next) => {
+    debug('param', req.body);
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    res.setHeader('Access-Control-Allow-Methods', 'GET, PUT, POST, DELETE');
+    res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+    next();
+});
 
 app.use('/api', api);
 
