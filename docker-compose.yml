@@ -41,3 +41,17 @@ services:
             - backend
         environment:
             - PORT=3000
+    swagger:
+        container_name: swagger
+        build: ./swagger
+        ports:
+            - '5000:5000'
+        volumes:
+            - './swagger:/usr/src/app'
+            - '/usr/src/app/node_modules'
+        depends_on:
+            - backend
+        links:
+            - backend
+        environment:
+            - PORT=5000

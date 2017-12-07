@@ -1,0 +1,7 @@
+/ping:
+    get:
+        summary: Performs a sanity check
+        description: Just a ping test
+        responses:
+            200:
+                description: Just a sanity check
